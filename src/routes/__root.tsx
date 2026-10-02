@@ -7,7 +7,7 @@ import {
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
-import { lazy, useEffect, type ReactNode } from "react";
+import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
@@ -34,12 +34,14 @@ function NotFoundComponent() {
   );
 }
 
-function ErrorComponent({ error, reset }: { error: unknown; reset: () => void }) {
-  console.error(error);
-  const router = useRouter();
-  useEffect(() => {
-    reportLovableError(error, { boundary: "tanstack_root_error_component" });
-  }, [error]);
+const ErrorComponent = Object.assign(
+  function ErrorComponent({ error, reset }: { error: unknown; reset: () => void }) {
+    console.error(error);
+    const router = useRouter();
+    useEffect(() => {
+      reportLovableError(error, { boundary: "tanstack_root_error_component" });
+    }, [error]);
+
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
