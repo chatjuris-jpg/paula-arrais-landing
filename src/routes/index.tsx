@@ -174,11 +174,13 @@ function ActionLink({ children, message, secondary = false, className = "" }: { 
   );
 }
 
-function SectionTitle({ eyebrow, children, centered = false }: { eyebrow: string; children: ReactNode; centered?: boolean }) {
+function SectionTitle({ eyebrow, children, centered = false, badge = false }: { eyebrow: string; children: ReactNode; centered?: boolean; badge?: boolean }) {
   return (
     <div className={centered ? "mx-auto max-w-3xl text-center" : "max-w-3xl"}>
-      <p className="eyebrow">{eyebrow}</p>
-      <h2 className="mt-5 font-display text-4xl leading-tight text-foreground md:text-6xl">{children}</h2>
+      {badge
+        ? <span className="method-badge">{eyebrow}</span>
+        : <p className="eyebrow">{eyebrow}</p>}
+      <h2 className={badge ? "mt-7 font-display text-4xl leading-tight text-foreground md:text-6xl" : "mt-5 font-display text-4xl leading-tight text-foreground md:text-6xl"}>{children}</h2>
     </div>
   );
 }
