@@ -34,12 +34,14 @@ function NotFoundComponent() {
   );
 }
 
-function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
-  console.error(error);
-  const router = useRouter();
-  useEffect(() => {
-    reportLovableError(error, { boundary: "tanstack_root_error_component" });
-  }, [error]);
+const ErrorComponent = Object.assign(
+  function ErrorComponent({ error, reset }: { error: unknown; reset: () => void }) {
+    console.error(error);
+    const router = useRouter();
+    useEffect(() => {
+      reportLovableError(error, { boundary: "tanstack_root_error_component" });
+    }, [error]);
+
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
@@ -70,7 +72,7 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
       </div>
     </div>
   );
-}
+  }, { preload: () => Promise.resolve(undefined) });
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
   head: () => ({

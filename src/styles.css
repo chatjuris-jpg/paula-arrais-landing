@@ -257,11 +257,22 @@
 
 @utility method-step {
   display: grid;
-  grid-template-columns: 4rem 1fr;
-  gap: 1.25rem;
+  grid-template-columns: 5rem 1fr;
+  gap: 1.5rem;
+  align-items: start;
   border: 1px solid var(--border);
+  border-left: 3px solid var(--dourado-escuro);
   background: var(--offwhite);
-  padding: 1.5rem;
+  padding: 2rem;
+  box-shadow: var(--shadow-premium);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+@utility method-band {
+  border: 1px solid color-mix(in oklab, var(--dourado-escuro) 35%, transparent);
+  background:
+    linear-gradient(180deg, color-mix(in oklab, var(--dourado-claro) 14%, var(--offwhite)) 0%, var(--offwhite) 100%);
+  padding: 2.5rem 2rem;
 }
 
 @utility stat {
@@ -284,6 +295,18 @@
   background: var(--offwhite);
   padding: 2rem;
   box-shadow: var(--shadow-premium);
+}
+
+.method-step:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-gold);
+}
+
+.method-step > span {
+  font-family: var(--font-display);
+  font-size: 2.75rem;
+  line-height: 0.9;
+  color: var(--dourado-escuro);
 }
 
 .action-primary:hover,

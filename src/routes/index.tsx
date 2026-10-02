@@ -317,23 +317,25 @@ function Index() {
         </div>
       </section>
 
-      <section id="metodo" className="border-y border-border/70 bg-background py-24 md:py-32">
+      <section id="metodo" className="relative border-y-2 border-primary/40 bg-card py-24 md:py-32">
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-1 bg-[linear-gradient(90deg,transparent,var(--dourado-escuro),transparent)]" aria-hidden="true" />
         <div className="mx-auto max-w-7xl px-5 md:px-8">
           <div className="grid gap-14 lg:grid-cols-[.8fr_1.2fr]">
             <div className="lg:sticky lg:top-10 lg:self-start">
               <SectionTitle eyebrow="Meu método">Despertar. Desenvolver. Transformar.</SectionTitle>
               <p className="mt-7 max-w-lg leading-relaxed text-muted-foreground">Não existe receita pronta para pessoas. Eu começo entendendo cada cultura, equipe e desafio.</p>
+              <ActionLink className="mt-9" message="Olá, Paula! Quero conhecer seu método de desenvolvimento.">Conhecer o método</ActionLink>
             </div>
-            <div className="space-y-4">
+            <div className="space-y-5">
               {method.map(([n, title, description]) => (
                 <div key={n} className="method-step">
-                  <span className="font-display text-3xl text-primary">{n}</span>
-                  <div><h3 className="text-lg font-medium text-foreground">{title}</h3><p className="mt-2 text-muted-foreground">{description}</p></div>
+                  <span>{n}</span>
+                  <div><h3 className="text-xl font-medium text-foreground md:text-2xl">{title}</h3><p className="mt-2 text-muted-foreground">{description}</p></div>
                 </div>
               ))}
             </div>
           </div>
-          <div className="mt-20 border-y border-border py-12 text-center">
+          <div className="method-band mt-20 text-center">
             <p className="mx-auto max-w-4xl font-display text-3xl leading-snug text-foreground md:text-4xl">“Eu não quero apenas que as pessoas aprendam. Quero que elas <span className="text-primary">mudem a forma de agir.</span>”</p>
             <p className="mt-6 text-muted-foreground">Escuta · Contexto · Prática · Acompanhamento</p>
           </div>
