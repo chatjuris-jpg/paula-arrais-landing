@@ -235,6 +235,7 @@ function Index() {
             <a href="#solucoes" className="transition-colors hover:text-primary">Soluções</a>
             <a href="#metodo" className="transition-colors hover:text-primary">Método</a>
             <a href="#sobre" className="transition-colors hover:text-primary">Sobre</a>
+            <a href="#depoimentos" className="transition-colors hover:text-primary">Depoimentos</a>
             <a href="#contato" className="transition-colors hover:text-primary">Contato</a>
           </nav>
           <a href="#contato" className="action-quiet">Vamos conversar <ArrowRight className="h-4 w-4" /></a>
@@ -392,6 +393,35 @@ function Index() {
           </div>
         </div>
       </section>
+
+      <section id="depoimentos" className="border-y border-border/70 bg-background py-24 md:py-32">
+        <div className="mx-auto max-w-7xl px-5 md:px-8">
+          <SectionTitle eyebrow="Depoimentos" centered>Quem já viveu essa transformação fala melhor do que eu.</SectionTitle>
+          <div className="mt-16 grid gap-6 md:grid-cols-3">
+            {testimonials.map((item) => (
+              <figure key={item.name} className="flex h-full flex-col rounded-2xl border border-border bg-card p-8 shadow-premium transition-transform duration-300 hover:-translate-y-1">
+                <div className="flex items-center gap-4">
+                  <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-primary font-display text-xl text-primary-foreground" aria-hidden="true">{item.initial}</span>
+                  <div>
+                    <p className="font-medium text-foreground">{item.name}</p>
+                    <p className="text-xs uppercase tracking-widest text-muted-foreground">{item.role}</p>
+                  </div>
+                </div>
+                {item.stars > 0 && (
+                  <div className="mt-4 flex gap-1" aria-label={`${item.stars} de 5 estrelas`}>
+                    {Array.from({ length: item.stars }).map((_, starIndex) => (
+                      <Star key={starIndex} className="h-4 w-4 fill-primary text-primary" aria-hidden="true" />
+                    ))}
+                  </div>
+                )}
+                <blockquote className="mt-5 flex-1 font-display text-xl leading-relaxed text-foreground">“{item.quote}”</blockquote>
+                <figcaption className="mt-6 border-t border-border pt-4 text-sm text-muted-foreground">Feedback real recebido por Paula</figcaption>
+              </figure>
+            ))}
+          </div>
+        </div>
+      </section>
+
 
       <section className="border-y border-border/70 bg-background py-24 md:py-32">
         <div className="mx-auto grid max-w-7xl items-center gap-14 px-5 md:px-8 lg:grid-cols-2">
