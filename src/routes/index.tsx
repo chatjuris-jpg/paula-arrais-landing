@@ -361,7 +361,7 @@ function Index() {
         <div className="mx-auto max-w-7xl px-5 md:px-8">
           <div className="grid gap-14 lg:grid-cols-[.8fr_1.2fr]">
             <div className="lg:sticky lg:top-10 lg:self-start">
-              <SectionTitle eyebrow="Meu método">Despertar. Desenvolver. Transformar.</SectionTitle>
+              <SectionTitle eyebrow="Meu método" badge>Despertar. Desenvolver. Transformar.</SectionTitle>
               <p className="mt-7 max-w-lg leading-relaxed text-muted-foreground">Não existe receita pronta para pessoas. Eu começo entendendo cada cultura, equipe e desafio.</p>
               <ActionLink className="mt-9" message="Olá, Paula! Quero conhecer seu método de desenvolvimento.">Conhecer o método</ActionLink>
             </div>
