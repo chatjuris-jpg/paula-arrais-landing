@@ -233,7 +233,7 @@ function Index() {
           <a href="#inicio" className="font-display text-2xl font-medium text-foreground">Paula <span className="text-primary">Arrais</span></a>
           <nav className="hidden items-center gap-8 text-sm text-muted-foreground lg:flex" aria-label="Navegação principal">
             <a href="#solucoes" className="transition-colors hover:text-primary">Soluções</a>
-            <a href="#metodo" className="transition-colors hover:text-primary">Método</a>
+            <a href="#metodo" className="border border-primary bg-primary/10 px-4 py-2 font-medium text-primary transition-colors hover:bg-primary hover:text-primary-foreground">Meu método</a>
             <a href="#sobre" className="transition-colors hover:text-primary">Sobre</a>
             <a href="#depoimentos" className="transition-colors hover:text-primary">Depoimentos</a>
             <a href="#contato" className="transition-colors hover:text-primary">Contato</a>
@@ -242,8 +242,8 @@ function Index() {
           <details className="group relative lg:hidden">
             <summary className="flex cursor-pointer list-none items-center gap-2 text-xs font-medium uppercase tracking-[0.2em] text-foreground [&::-webkit-details-marker]:hidden">Menu<span className="text-primary group-open:rotate-45 transition-transform">+</span></summary>
             <nav className="absolute right-0 top-full z-50 mt-4 flex w-56 flex-col border border-border bg-card p-2 shadow-premium" aria-label="Navegação móvel" onClick={(e) => (e.currentTarget.parentElement as HTMLDetailsElement).removeAttribute("open")}>
-              {[["#solucoes","Soluções"],["#metodo","Método"],["#sobre","Sobre"],["#depoimentos","Depoimentos"],["#contato","Contato"]].map(([h,l]) => (
-                <a key={h} href={h} className="px-4 py-3 text-sm text-foreground hover:text-primary">{l}</a>
+              {[["#solucoes","Soluções"],["#metodo","Meu método"],["#sobre","Sobre"],["#depoimentos","Depoimentos"],["#contato","Contato"]].map(([h,l]) => (
+                <a key={h} href={h} className={h === "#metodo" ? "my-1 border-l-2 border-primary bg-primary/10 px-4 py-3 text-sm font-medium text-primary" : "px-4 py-3 text-sm text-foreground hover:text-primary"}>{l}</a>
               ))}
             </nav>
           </details>
