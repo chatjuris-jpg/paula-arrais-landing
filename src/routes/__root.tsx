@@ -72,7 +72,7 @@ const ErrorComponent = Object.assign(
       </div>
     </div>
   );
-}
+  }, { preload: () => Promise.resolve(undefined) });
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
   head: () => ({
@@ -105,7 +105,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
   shellComponent: RootShell,
   component: RootComponent,
   notFoundComponent: NotFoundComponent,
-  errorComponent: lazy(() => Promise.resolve({ default: ErrorComponent })),
+  errorComponent: ErrorComponent,
 });
 
 function RootShell({ children }: { children: ReactNode }) {
