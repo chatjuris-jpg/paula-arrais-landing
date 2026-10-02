@@ -174,11 +174,13 @@ function ActionLink({ children, message, secondary = false, className = "" }: { 
   );
 }
 
-function SectionTitle({ eyebrow, children, centered = false }: { eyebrow: string; children: ReactNode; centered?: boolean }) {
+function SectionTitle({ eyebrow, children, centered = false, badge = false }: { eyebrow: string; children: ReactNode; centered?: boolean; badge?: boolean }) {
   return (
     <div className={centered ? "mx-auto max-w-3xl text-center" : "max-w-3xl"}>
-      <p className="eyebrow">{eyebrow}</p>
-      <h2 className="mt-5 font-display text-4xl leading-tight text-foreground md:text-6xl">{children}</h2>
+      {badge
+        ? <span className="method-badge">{eyebrow}</span>
+        : <p className="eyebrow">{eyebrow}</p>}
+      <h2 className={badge ? "mt-7 font-display text-4xl leading-tight text-foreground md:text-6xl" : "mt-5 font-display text-4xl leading-tight text-foreground md:text-6xl"}>{children}</h2>
     </div>
   );
 }
@@ -233,7 +235,7 @@ function Index() {
           <a href="#inicio" className="font-display text-2xl font-medium text-foreground">Paula <span className="text-primary">Arrais</span></a>
           <nav className="hidden items-center gap-8 text-sm text-muted-foreground lg:flex" aria-label="Navegação principal">
             <a href="#solucoes" className="transition-colors hover:text-primary">Soluções</a>
-            <a href="#metodo" className="border border-primary bg-primary/10 px-4 py-2 font-medium text-primary transition-colors hover:bg-primary hover:text-primary-foreground">Meu método</a>
+            <a href="#metodo" className="transition-colors hover:text-primary">Meu método</a>
             <a href="#sobre" className="transition-colors hover:text-primary">Sobre</a>
             <a href="#depoimentos" className="transition-colors hover:text-primary">Depoimentos</a>
             <a href="#contato" className="transition-colors hover:text-primary">Contato</a>
@@ -243,7 +245,7 @@ function Index() {
             <summary className="flex cursor-pointer list-none items-center gap-2 text-xs font-medium uppercase tracking-[0.2em] text-foreground [&::-webkit-details-marker]:hidden">Menu<span className="text-primary group-open:rotate-45 transition-transform">+</span></summary>
             <nav className="absolute right-0 top-full z-50 mt-4 flex w-56 flex-col border border-border bg-card p-2 shadow-premium" aria-label="Navegação móvel" onClick={(e) => (e.currentTarget.parentElement as HTMLDetailsElement).removeAttribute("open")}>
               {[["#solucoes","Soluções"],["#metodo","Meu método"],["#sobre","Sobre"],["#depoimentos","Depoimentos"],["#contato","Contato"]].map(([h,l]) => (
-                <a key={h} href={h} className={h === "#metodo" ? "my-1 border-l-2 border-primary bg-primary/10 px-4 py-3 text-sm font-medium text-primary" : "px-4 py-3 text-sm text-foreground hover:text-primary"}>{l}</a>
+                <a key={h} href={h} className="px-4 py-3 text-sm text-foreground hover:text-primary">{l}</a>
               ))}
             </nav>
           </details>
@@ -359,7 +361,7 @@ function Index() {
         <div className="mx-auto max-w-7xl px-5 md:px-8">
           <div className="grid gap-14 lg:grid-cols-[.8fr_1.2fr]">
             <div className="lg:sticky lg:top-10 lg:self-start">
-              <SectionTitle eyebrow="Meu método">Despertar. Desenvolver. Transformar.</SectionTitle>
+              <SectionTitle eyebrow="Meu método" badge>Despertar. Desenvolver. Transformar.</SectionTitle>
               <p className="mt-7 max-w-lg leading-relaxed text-muted-foreground">Não existe receita pronta para pessoas. Eu começo entendendo cada cultura, equipe e desafio.</p>
               <ActionLink className="mt-9" message="Olá, Paula! Quero conhecer seu método de desenvolvimento.">Conhecer o método</ActionLink>
             </div>

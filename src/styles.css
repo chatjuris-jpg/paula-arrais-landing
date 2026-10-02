@@ -153,6 +153,20 @@
   color: var(--dourado-escuro);
 }
 
+@utility method-badge {
+  display: inline-block;
+  border: 1px solid var(--dourado-escuro);
+  border-radius: 9999px;
+  background: var(--gradient-dourado);
+  color: var(--onyx);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  padding: 0.55rem 1.4rem;
+  box-shadow: var(--shadow-gold);
+}
+
 @utility card-premium {
   background: linear-gradient(
     160deg,
