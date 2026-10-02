@@ -8,6 +8,7 @@ import {
   MessageCircle,
   Phone,
   Sparkles,
+  Star,
 } from "lucide-react";
 import type { FormEvent, ReactNode } from "react";
 import paula1 from "@/assets/paula-1.png.asset.json";
@@ -118,6 +119,33 @@ const method = [
   ["03", "Desenvolver", "Fortalecer competências e ferramentas."],
   ["04", "Aplicar", "Levar o aprendizado para a rotina."],
   ["05", "Evoluir", "Acompanhar, ajustar e sustentar a mudança."],
+];
+
+const testimonials = [
+  {
+    name: "Caroline Magalhães",
+    role: "Avaliação recebida",
+    stars: 5,
+    initial: "C",
+    quote:
+      "A Paula é uma profissional ímpar. Alguém que nasceu para liderar e encantar. Aprendo diariamente com ela. Indico de olhos fechados. Sua experiência e profissionalismo nos inspira! Conselho… só façam!",
+  },
+  {
+    name: "Letícia Barros",
+    role: "Avaliação recebida",
+    stars: 5,
+    initial: "L",
+    quote:
+      "Conheci a Paula no meu primeiro emprego, e ela foi a pessoa que mais me motivou. Sempre muito atenta aos detalhes.",
+  },
+  {
+    name: "Lucas Xavier",
+    role: "Recomendação",
+    stars: 0,
+    initial: "L",
+    quote:
+      "Profissional sem igual, super dedicada, aplicada, esclarece todas as dúvidas que temos. Com certeza uma profissional fora da curva. 👏👏👏",
+  },
 ];
 
 const faqs = [
