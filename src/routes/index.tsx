@@ -238,7 +238,15 @@ function Index() {
             <a href="#depoimentos" className="transition-colors hover:text-primary">Depoimentos</a>
             <a href="#contato" className="transition-colors hover:text-primary">Contato</a>
           </nav>
-          <a href="#contato" className="action-quiet">Vamos conversar <ArrowRight className="h-4 w-4" /></a>
+          <a href="#contato" className="action-quiet hidden sm:inline-flex">Vamos conversar <ArrowRight className="h-4 w-4" /></a>
+          <details className="group relative lg:hidden">
+            <summary className="flex cursor-pointer list-none items-center gap-2 text-xs font-medium uppercase tracking-[0.2em] text-foreground [&::-webkit-details-marker]:hidden">Menu<span className="text-primary group-open:rotate-45 transition-transform">+</span></summary>
+            <nav className="absolute right-0 top-full z-50 mt-4 flex w-56 flex-col border border-border bg-card p-2 shadow-premium" aria-label="Navegação móvel" onClick={(e) => (e.currentTarget.parentElement as HTMLDetailsElement).removeAttribute("open")}>
+              {[["#solucoes","Soluções"],["#metodo","Método"],["#sobre","Sobre"],["#depoimentos","Depoimentos"],["#contato","Contato"]].map(([h,l]) => (
+                <a key={h} href={h} className="px-4 py-3 text-sm text-foreground hover:text-primary">{l}</a>
+              ))}
+            </nav>
+          </details>
         </div>
       </header>
 
