@@ -100,6 +100,7 @@
   );
   --shadow-premium: 0 24px 60px -28px oklch(0.27 0.028 62 / 0.35);
   --shadow-gold: 0 18px 44px -20px color-mix(in oklab, var(--dourado-escuro) 40%, transparent);
+  --shadow-float: 0 30px 70px -32px color-mix(in oklab, var(--marrom) 48%, transparent);
 }
 
 
@@ -160,5 +161,190 @@
   );
   border: 1px solid color-mix(in oklab, var(--bronze) 35%, transparent);
   box-shadow: var(--shadow-premium);
+}
+
+@utility action-primary {
+  display: inline-flex;
+  min-height: 3.25rem;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  border: 1px solid var(--dourado-escuro);
+  border-radius: var(--radius-sm);
+  background: var(--gradient-dourado);
+  padding: 0.85rem 1.5rem;
+  color: var(--primary-foreground);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  box-shadow: var(--shadow-gold);
+  transition: transform 200ms ease, box-shadow 200ms ease;
+}
+
+@utility action-secondary {
+  display: inline-flex;
+  min-height: 3.25rem;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  border: 1px solid var(--bronze);
+  border-radius: var(--radius-sm);
+  padding: 0.85rem 1.5rem;
+  color: var(--foreground);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition: background-color 200ms ease, transform 200ms ease;
+}
+
+@utility action-quiet {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--foreground);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+@utility portrait-frame {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-float);
+}
+
+@utility portrait-note {
+  position: absolute;
+  right: -1rem;
+  bottom: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  border-left: 2px solid var(--dourado-escuro);
+  background: var(--offwhite);
+  padding: 1rem 1.25rem;
+  color: var(--marrom);
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  line-height: 1.25;
+  box-shadow: var(--shadow-premium);
+}
+
+@utility result-item {
+  display: flex;
+  min-height: 7rem;
+  align-items: center;
+  gap: 1rem;
+  border-top: 1px solid var(--border);
+  padding: 1.5rem 0;
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  color: var(--foreground);
+}
+
+@utility topic-tag {
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.35rem 0.7rem;
+  color: var(--muted-foreground);
+  font-size: 0.72rem;
+}
+
+@utility method-step {
+  display: grid;
+  grid-template-columns: 4rem 1fr;
+  gap: 1.25rem;
+  border: 1px solid var(--border);
+  background: var(--offwhite);
+  padding: 1.5rem;
+}
+
+@utility stat {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  font-weight: 400;
+  color: var(--primary);
+}
+
+@utility contact-line {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--foreground);
+}
+
+@utility contact-form {
+  border: 1px solid var(--border);
+  background: var(--offwhite);
+  padding: 2rem;
+  box-shadow: var(--shadow-premium);
+}
+
+.action-primary:hover,
+.action-secondary:hover {
+  transform: translateY(-2px);
+}
+
+.action-secondary:hover {
+  background: var(--secondary);
+}
+
+.contact-form label {
+  display: grid;
+  gap: 0.55rem;
+  color: var(--foreground);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+  width: 100%;
+  border: 1px solid var(--input);
+  border-radius: var(--radius-sm);
+  background: var(--background);
+  padding: 0.8rem 0.9rem;
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+  outline: none;
+  transition: border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus {
+  border-color: var(--ring);
+  box-shadow: 0 0 0 3px color-mix(in oklab, var(--ring) 18%, transparent);
+}
+
+@media (max-width: 640px) {
+  .portrait-note {
+    right: 0.75rem;
+    bottom: 0.75rem;
+  }
+
+  .contact-form {
+    padding: 1.25rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .action-primary,
+  .action-secondary {
+    transition: none;
+  }
 }
 
