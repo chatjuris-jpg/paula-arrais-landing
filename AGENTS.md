@@ -10,3 +10,4 @@
 <!-- LOVABLE:END -->
 
 - The contact form opens a prefilled WhatsApp conversation and does not persist visitor data, keeping the initial sales flow simple and privacy-conscious.
+- Google Tag Manager container GTM-PJXKPQQK is installed in RootShell (src/routes/__root.tsx) via inline script in <head> plus noscript iframe after <body> — keep both when editing the shell; no other analytics tags should be added outside GTM.
