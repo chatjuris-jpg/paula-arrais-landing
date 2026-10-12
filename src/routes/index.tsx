@@ -11,9 +11,9 @@ import {
   Star,
 } from "lucide-react";
 import type { FormEvent, ReactNode } from "react";
-import paula1 from "@/assets/paula-1.png.asset.json";
-import paula2 from "@/assets/paula-2.png.asset.json";
-import paula3 from "@/assets/paula-3.png.asset.json";
+import paula1 from "@/assets/paula-1.png";
+import paula2 from "@/assets/paula-2.png";
+import paula3 from "@/assets/paula-3.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -271,7 +271,7 @@ function Index() {
           </div>
           <div className="relative mx-auto w-full max-w-lg lg:max-w-none">
             <div className="portrait-frame">
-              <img src={paula1.url} alt="Paula Arrais, especialista em desenvolvimento de pessoas para clínicas" className="h-full w-full object-cover" loading="eager" />
+              <img src={paula1} alt="Paula Arrais, especialista em desenvolvimento de pessoas para clínicas" className="h-full w-full object-cover" loading="eager" />
             </div>
             <div className="portrait-note"><Sparkles className="h-5 w-5 text-primary" /><span>Pessoas que evoluem.<br />Clínicas que se transformam.</span></div>
           </div>
@@ -384,7 +384,7 @@ function Index() {
       <section id="sobre" className="bg-card py-24 md:py-32">
         <div className="mx-auto grid max-w-7xl items-center gap-14 px-5 md:px-8 lg:grid-cols-[.9fr_1.1fr] lg:gap-20">
           <div className="relative">
-            <img src={paula3.url} alt="Retrato profissional de Paula Arrais" className="aspect-[4/5] w-full object-cover" loading="lazy" />
+            <img src={paula3} alt="Retrato profissional de Paula Arrais" className="aspect-[4/5] w-full object-cover" loading="lazy" />
             <div className="absolute -bottom-6 -right-3 bg-primary px-7 py-5 text-primary-foreground md:-right-6"><p className="font-display text-3xl">+10 anos</p><p className="text-sm">vivendo essa realidade</p></div>
           </div>
           <div>
@@ -442,7 +442,7 @@ function Index() {
               {["Fortalecer a cultura", "Desenvolver protagonismo", "Melhorar a comunicação", "Preparar líderes", "Elevar a experiência do paciente", "Criar mais independência"].map((item) => <li key={item} className="flex items-start gap-3 text-foreground"><Check className="mt-0.5 h-5 w-5 shrink-0 text-primary" />{item}</li>)}
             </ul>
           </div>
-          <img src={paula2.url} alt="Paula Arrais em ambiente profissional" className="aspect-[4/3] w-full object-cover" loading="lazy" />
+          <img src={paula2} alt="Paula Arrais em ambiente profissional" className="aspect-[4/3] w-full object-cover" loading="lazy" />
         </div>
       </section>
 
